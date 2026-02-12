@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up - SplitPay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- SAME CSS (Copy your full CSS from login page here) -->
+    <!-- IMPORTANT: Paste the exact same <style> section from login page -->
+        <style>
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    background: #0f0c29;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* ===== BACKGROUND ===== */
+.bg-gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #190019, #2B124C, #522B5B);
+    z-index: -3;
+}
+
+.bg-accent,
+.bg-accent-2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: -2;
+}
+
+.bg-accent {
+    background: #854F6C;
+    top: -100px;
+    left: -100px;
+}
+
+.bg-accent-2 {
+    background: #DFB6B2;
+    bottom: -100px;
+    right: -100px;
+}
+
+/* ===== WRAPPER ===== */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* ===== FORM BOX ===== */
+.form-box {
+    width: 420px;
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+/* ===== LOGO ===== */
+.logo-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo-icon {
+    width: 50px;
+    margin: auto;
+    margin-bottom: 10px;
+    color: #DFB6B2;
+}
+
+.logo-text {
+    font-family: "Sora", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* ===== HEADINGS ===== */
+h2 {
+    text-align: center;
+    font-family: "Sora", sans-serif;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 25px;
+    opacity: 0.8;
+}
+
+/* ===== INPUT BOX ===== */
+.input-box {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px 10px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255,255,255,0.5);
+    outline: none;
+    color: #fff;
+    font-size: 15px;
+}
+
+.input-box label {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    pointer-events: none;
+    transition: 0.3s;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Floating effect */
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+    top: -8px;
+    font-size: 12px;
+    color: #DFB6B2;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #854F6C, #DFB6B2);
+    color: #190019;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* ===== DIVIDER ===== */
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+/* ===== SOCIAL BUTTON ===== */
+.social-login {
+    text-align: center;
+}
+
+.social-btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.social-btn:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* ===== LINKS ===== */
+.logreg-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.logreg-link a {
+    color: #DFB6B2;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ===== MESSAGES ===== */
+.error-message {
+    background: rgba(255, 0, 0, 0.2);
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    display: none;
+}
+
+.success-message {
+    background: rgba(0, 255, 0, 0.2);
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    display: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+    .form-box {
+        width: 90%;
+        padding: 25px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+    <div class="bg-gradient"></div>
+    <div class="bg-accent"></div>
+    <div class="bg-accent-2"></div>
+
+    <div class="wrapper">
+        <div class="form-box register">
+
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <polyline points="19 12 12 19 5 12"></polyline>
+                    </svg>
+                </div>
+                <div class="logo-text">SplitPay</div>
+            </div>
+
+            <h2>Create Account</h2>
+            <p class="subtitle">Start splitting smarter today</p>
+
+            <!-- Error -->
+            <div id="errorMessage" class="error-message"></div>
+
+            <!-- Success -->
+            <div id="successMessage" class="success-message"></div>
+
+            <form id="signupForm">
+
+                <!-- Full Name -->
+                <div class="input-box">
+                    <input type="text" id="name" required>
+                    <label>Full Name</label>
+                </div>
+
+                <!-- Email -->
+                <div class="input-box">
+                    <input type="email" id="email" required>
+                    <label>Email</label>
+                </div>
+
+                <!-- Password -->
+                <div class="input-box">
+                    <input type="password" id="password" required>
+                    <label>Password</label>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="input-box">
+                    <input type="password" id="confirmPassword" required>
+                    <label>Confirm Password</label>
+                </div>
+
+                <button type="submit" class="btn" id="signupBtn">
+                    Create Account
+                </button>
+
+                <div class="divider">
+                    <span>or sign up with</span>
+                </div>
+
+                <div class="social-login">
+                    <button type="button" class="social-btn" id="googleSignupBtn">
+                        Google
+                    </button>
+                </div>
+
+                <div class="logreg-link">
+                    <p>Already have an account?
+                        <a href="login.html">Login</a>
+                    </p>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Signup Script -->
+    <script src="signup.js"></script>
+
+
+</body>
+</html>

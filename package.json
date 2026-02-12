@@ -1,0 +1,26 @@
+{
+  "name": "splitpay",
+  "version": "1.0.0",
+  "description": "Split expenses with friends - Firebase Authentication",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite"
+  },
+  "keywords": [
+    "firebase",
+    "authentication",
+    "split-expenses"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^10.7.1"
+  },
+  "devDependencies": {
+    "vite": "^5.0.8"
+  }
+}
